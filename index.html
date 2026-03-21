@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshita Loganathan — Data Analyst & Analytics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#0a0a09;--off:#1a1a18;--mid:#4a4a46;--muted:#8a8a84;
+  --faint:#c8c8c0;--line:#e8e8e0;--bg:#fafaf7;--surface:#f4f4f0;
+  --white:#fff;--accent:#c8602a;--accent-bg:#fdf0e8;
+}
+html,body{height:100%;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);font-size:14px;line-height:1.6;}
+.shell{display:grid;grid-template-columns:265px 1fr;min-height:100vh;}
+
+/* ── SIDEBAR ── */
+.sb{background:var(--black);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;}
+.sb-head{padding:2.5rem 2rem 1.5rem;}
+.avatar{width:52px;height:52px;border-radius:11px;background:var(--off);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.9);margin-bottom:1.1rem;}
+.sb-name{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:300;color:#fff;line-height:1.3;margin-bottom:5px;}
+.sb-role{font-size:11px;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.65;letter-spacing:0.03em;}
+.sb-status{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;color:rgba(255,255,255,0.4);}
+.dot-green{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;}
+.sb-nav{padding:0.5rem 1.25rem;flex:1;}
+.nav-label{font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:0 0.75rem;margin:0.75rem 0 5px;}
+.nav-a{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:7px;font-size:13px;font-weight:400;color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.15s;user-select:none;}
+.nav-a:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85);}
+.nav-a.on{background:rgba(255,255,255,0.1);color:#fff;font-weight:500;}
+.nav-pip{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);flex-shrink:0;transition:background 0.15s;}
+.nav-a.on .nav-pip{background:var(--accent);}
+.nav-a.res-nav{color:rgba(200,96,42,0.8);}
+.nav-a.res-nav:hover{background:rgba(200,96,42,0.1);color:var(--accent);}
+.nav-a.res-nav.on{background:rgba(200,96,42,0.14);color:var(--accent);}
+.nav-a.res-nav .nav-pip,.nav-a.res-nav.on .nav-pip{background:var(--accent);}
+.sb-foot{padding:1.25rem 2rem;border-top:1px solid rgba(255,255,255,0.07);}
+.sb-links{display:flex;gap:12px;flex-wrap:wrap;}
+.sb-links a{font-size:11px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.15s;}
+.sb-links a:hover{color:rgba(255,255,255,0.75);}
+
+/* ── MAIN ── */
+.main{background:var(--bg);}
+.page{display:none;padding:3.5rem 4rem 6rem;max-width:860px;animation:up 0.28s ease;}
+.page.on{display:block;}
+@keyframes up{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;}
+.pg-h{font-family:'Fraunces',serif;font-size:2.3rem;font-weight:300;line-height:1.2;color:var(--black);margin-bottom:2rem;}
+.pg-h em{font-style:italic;color:var(--mid);}
+.rule{height:1px;background:var(--line);margin:2rem 0;}
+.body-p{font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:1rem;}
+
+/* ── HOME ── */
+.home-lede{font-size:15px;font-weight:300;color:var(--mid);line-height:1.9;max-width:520px;margin-bottom:1.75rem;}
+.home-lede p+p{margin-top:1rem;}
+.home-two-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2rem;}
+.home-pill{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1rem 1.25rem;}
+.home-pill-title{font-size:12px;font-weight:500;color:var(--black);margin-bottom:4px;}
+.home-pill-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.5;}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2.5rem;}
+.tag{font-size:12px;color:var(--mid);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:5px 13px;}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-primary{font-size:13px;font-weight:500;color:#fff;background:var(--black);border:none;border-radius:8px;padding:10px 22px;cursor:pointer;text-decoration:none;transition:opacity 0.15s;display:inline-block;}
+.btn-primary:hover{opacity:0.8;}
+.btn-ghost{font-size:13px;font-weight:400;color:var(--black);background:transparent;border:1px solid var(--line);border-radius:8px;padding:10px 22px;cursor:pointer;text-decoration:none;transition:background 0.15s;display:inline-block;}
+.btn-ghost:hover{background:var(--surface);}
+
+/* ── ABOUT STATS ── */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2.5rem;}
+.stat-box{background:var(--surface);border-radius:10px;padding:1.1rem 1rem;}
+.stat-num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:300;color:var(--black);line-height:1;}
+.stat-lbl{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.4;}
+
+/* ── EDUCATION ── */
+.edu-row{display:flex;justify-content:space-between;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid var(--line);gap:1rem;}
+.edu-row:first-of-type{border-top:1px solid var(--line);}
+.edu-school{font-size:14px;font-weight:500;color:var(--black);}
+.edu-deg{font-size:13px;font-weight:300;color:var(--mid);margin-top:3px;}
+.badge{display:inline-block;font-size:10px;font-weight:500;color:var(--accent);background:var(--accent-bg);border-radius:4px;padding:2px 8px;margin-top:6px;letter-spacing:0.03em;}
+.edu-yr{font-size:12px;color:var(--faint);white-space:nowrap;padding-top:2px;}
+
+/* ── TIMELINE ── */
+.tl{position:relative;padding-left:22px;}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line);}
+.tl-item{position:relative;padding-bottom:2.25rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:-22px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1.5px solid var(--faint);transform:translateX(-4px);}
+.tl-item.now .tl-dot{background:var(--accent);border-color:var(--accent);}
+.tl-date{font-size:11px;color:var(--faint);margin-bottom:4px;}
+.tl-role{font-size:14px;font-weight:500;color:var(--black);}
+.tl-co{font-size:12px;color:var(--accent);margin-top:2px;}
+.tl-desc{font-size:13px;font-weight:300;color:var(--mid);line-height:1.8;margin-top:8px;}
+.tl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.tl-tag{font-size:10px;color:var(--muted);background:var(--surface);border-radius:3px;padding:2px 7px;}
+
+/* ── PROJECTS ── */
+.proj-featured{display:flex;flex-direction:column;gap:18px;margin-bottom:2.5rem;}
+.proj-card{border:1px solid var(--line);border-radius:14px;padding:1.75rem;background:var(--white);transition:border-color 0.15s,transform 0.15s;}
+.proj-card:hover{border-color:var(--faint);transform:translateY(-2px);}
+.proj-card.hi{border-left:3px solid var(--accent);}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.75rem;}
+.proj-num{font-family:'Fraunces',serif;font-size:0.85rem;font-style:italic;color:var(--faint);}
+.proj-ext{font-size:11px;color:var(--accent);text-decoration:none;font-weight:500;padding:4px 10px;background:var(--accent-bg);border-radius:4px;white-space:nowrap;transition:opacity 0.15s;}
+.proj-ext:hover{opacity:0.8;}
+.proj-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;color:var(--black);line-height:1.3;margin-bottom:4px;}
+.proj-sub{font-size:12px;color:var(--muted);margin-bottom:1rem;}
+.proj-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;}
+.proj-chip{font-size:11px;color:var(--muted);background:var(--surface);border-radius:4px;padding:3px 8px;}
+.proj-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem;}
+.pm{background:var(--surface);border-radius:8px;padding:0.75rem 0.85rem;}
+.pm-n{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:300;color:var(--black);line-height:1;}
+.pm-l{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.3;}
+.proj-findings{margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--line);}
+.pf-lbl{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:0.5rem;}
+.pf-list{list-style:none;padding:0;}
+.pf-list li{font-size:12px;font-weight:300;color:var(--mid);line-height:1.65;padding:2px 0 2px 16px;position:relative;}
+.pf-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.proj-sm{border:1px solid var(--line);border-radius:12px;padding:1.4rem;background:var(--white);transition:border-color 0.15s,transform 0.15s;}
+.proj-sm:hover{border-color:var(--faint);transform:translateY(-2px);}
+.proj-sm-n{font-family:'Fraunces',serif;font-size:0.85rem;font-style:italic;color:var(--faint);margin-bottom:4px;}
+.proj-sm-title{font-size:13px;font-weight:500;color:var(--black);line-height:1.4;margin-bottom:6px;}
+.proj-sm-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
+.proj-sm-chip{font-size:10px;color:var(--muted);background:var(--surface);border-radius:3px;padding:2px 7px;}
+.proj-sm-desc{font-size:12px;font-weight:300;color:var(--mid);line-height:1.7;}
+
+/* ── SKILLS ── */
+.skill-block{margin-bottom:1.75rem;}
+.skill-lbl{font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--faint);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+.skill-pills{display:flex;flex-wrap:wrap;gap:7px;}
+.sk{font-size:13px;font-weight:300;color:var(--mid);background:var(--white);border:1px solid var(--line);border-radius:20px;padding:5px 14px;}
+
+/* ── CONTACT ── */
+.contact-note{font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;max-width:460px;margin-bottom:2.5rem;}
+.c-list{display:flex;flex-direction:column;gap:10px;}
+.c-card{display:flex;align-items:center;gap:14px;padding:1rem 1.25rem;border:1px solid var(--line);border-radius:10px;text-decoration:none;background:var(--white);transition:border-color 0.15s,background 0.15s;}
+.c-card:hover{border-color:var(--faint);background:var(--surface);}
+.c-icon{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--mid);flex-shrink:0;}
+.c-lbl{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);}
+.c-val{font-size:13px;color:var(--black);margin-top:1px;}
+
+/* ── RESUME ── */
+.res-tabs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem;}
+.res-tab{font-size:12px;font-weight:400;color:var(--mid);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer;transition:all 0.15s;user-select:none;}
+.res-tab:hover{border-color:var(--faint);}
+.res-tab.on{background:var(--black);color:#fff;border-color:var(--black);}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:500;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;text-decoration:none;transition:opacity 0.15s;}
+.dl-btn:hover{opacity:0.88;}
+.resume-frame-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--white);}
+.resume-frame-wrap iframe{width:100%;height:76vh;min-height:500px;border:none;display:block;}
+
+@media(max-width:720px){
+  .shell{grid-template-columns:1fr;}
+  .sb{position:static;height:auto;}
+  .sb-head{padding:1.5rem 1.25rem 1rem;}
+  .sb-nav{display:flex;flex-wrap:wrap;padding:0.5rem 0.75rem;gap:2px;}
+  .nav-label{display:none;}
+  .sb-foot{padding:1rem 1.25rem;}
+  .page{padding:2rem 1.25rem 3rem;}
+  .stat-grid,.proj-metrics,.home-two-cols{grid-template-columns:1fr 1fr;}
+  .proj-grid{grid-template-columns:1fr;}
+  .pg-h{font-size:1.85rem;}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<aside class="sb">
+  <div class="sb-head">
+    <div class="avatar">HL</div>
+    <div class="sb-name">Harshita<br>Loganathan</div>
+    <div class="sb-role">Data Analyst &amp; Analytics Engineer<br>Boston, MA</div>
+    <div class="sb-status"><span class="dot-green"></span>Open to work</div>
+  </div>
+  <nav class="sb-nav">
+    <div class="nav-label">Pages</div>
+    <div class="nav-a on"       onclick="go('home',this)"><span class="nav-pip"></span>Home</div>
+    <div class="nav-a"          onclick="go('about',this)"><span class="nav-pip"></span>About</div>
+    <div class="nav-a"          onclick="go('edu',this)"><span class="nav-pip"></span>Education</div>
+    <div class="nav-a"          onclick="go('exp',this)"><span class="nav-pip"></span>Experience</div>
+    <div class="nav-a"          onclick="go('proj',this)"><span class="nav-pip"></span>Projects</div>
+    <div class="nav-a"          onclick="go('skills',this)"><span class="nav-pip"></span>Skills</div>
+    <div class="nav-a"          onclick="go('contact',this)"><span class="nav-pip"></span>Contact</div>
+    <div class="nav-a res-nav"  onclick="go('resume',this)"><span class="nav-pip"></span>Resume</div>
+  </nav>
+  <div class="sb-foot">
+    <div class="sb-links">
+      <a href="https://linkedin.com/in/harshitaloganathan" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Hloganathan08" target="_blank">GitHub</a>
+      <a href="mailto:hloganathan@umass.edu">Email</a>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HOME -->
+<div class="page on" id="home">
+  <div class="eyebrow">Welcome</div>
+  <h1 class="pg-h">Hi, I'm Harshita —<br><em>I analyze data and build<br>the infrastructure behind it.</em></h1>
+  <div class="home-lede">
+    <p>I'm a data professional with 1.5+ years of experience turning raw data into reliable insights. I work on both sides of the data stack — analyzing business trends and building the clean, well-modeled data that makes analysis possible in the first place.</p>
+    <p>I've reduced reporting time by 40%, eliminated 30% of data errors, and identified over $1.3M in revenue at risk through hands-on analytical work.</p>
+  </div>
+  <div class="home-two-cols">
+    <div class="home-pill">
+      <div class="home-pill-title">Data Analysis</div>
+      <div class="home-pill-desc">SQL, Python, Power BI, Tableau — KPI frameworks, cohort analysis, revenue modeling, customer segmentation</div>
+    </div>
+    <div class="home-pill">
+      <div class="home-pill-title">Analytics Engineering</div>
+      <div class="home-pill-desc">dbt, dimensional modeling, star schema, semantic layer design, data validation &amp; reconciliation</div>
+    </div>
+  </div>
+  <div class="tag-cloud">
+    <span class="tag">SQL</span>
+    <span class="tag">Python</span>
+    <span class="tag">dbt</span>
+    <span class="tag">Power BI</span>
+    <span class="tag">Tableau</span>
+    <span class="tag">Dimensional Modeling</span>
+    <span class="tag">Cohort Analysis</span>
+    <span class="tag">Revenue Analytics</span>
+  </div>
+  <div class="cta-row">
+    <span class="btn-primary" onclick="go('contact',document.querySelectorAll('.nav-a')[6])">Get in touch</span>
+    <span class="btn-ghost"   onclick="go('proj',document.querySelectorAll('.nav-a')[4])">View projects</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="about">
+  <div class="eyebrow">About me</div>
+  <h2 class="pg-h">I find the story in data<br><em>and build systems that tell it reliably.</em></h2>
+  <div class="stat-grid">
+    <div class="stat-box"><div class="stat-num">40%</div><div class="stat-lbl">Faster reporting</div></div>
+    <div class="stat-box"><div class="stat-num">30%</div><div class="stat-lbl">Fewer data errors</div></div>
+    <div class="stat-box"><div class="stat-num">$1.3M</div><div class="stat-lbl">Revenue risk identified</div></div>
+    <div class="stat-box"><div class="stat-num">5K+</div><div class="stat-lbl">Stakeholders served</div></div>
+  </div>
+  <p class="body-p">I'm a data professional who works across both analysis and engineering. On the analysis side, I dig into business data — revenue trends, customer churn, KPI performance — and turn findings into decisions teams can act on. On the engineering side, I design the dimensional models, dbt transformation layers, and data pipelines that make reliable analysis possible in the first place.</p>
+  <p class="body-p">I've built automated reporting pipelines that cut manual effort by 40%, designed KPI frameworks used by 5,000+ stakeholders, reconciled financial data across complex multi-system environments, and delivered dashboards that leadership actually uses day to day.</p>
+  <p class="body-p">I hold an MS in Computer Science from UMass Amherst (GPA 3.6) and bring a software engineering background that lets me work comfortably at the pipeline level — not just the dashboard level.</p>
+</div>
+
+<!-- EDUCATION -->
+<div class="page" id="edu">
+  <div class="eyebrow">Education</div>
+  <h2 class="pg-h">Academic<br><em>background.</em></h2>
+  <div class="edu-row">
+    <div>
+      <div class="edu-school">University of Massachusetts Amherst</div>
+      <div class="edu-deg">Master of Science in Computer Science</div>
+      <span class="badge">GPA 3.6</span>
+    </div>
+    <div class="edu-yr">May 2025</div>
+  </div>
+  <div class="edu-row">
+    <div>
+      <div class="edu-school">Anna University</div>
+      <div class="edu-deg">Bachelor of Engineering in Computer Science</div>
+    </div>
+    <div class="edu-yr">Apr 2023</div>
+  </div>
+  <div class="rule"></div>
+  <div class="eyebrow">Certifications</div>
+  <div class="edu-row">
+    <div>
+      <div class="edu-school">Google Data Analytics Professional Certificate</div>
+      <div class="edu-deg">Google · Coursera</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="page" id="exp">
+  <div class="eyebrow">Experience</div>
+  <h2 class="pg-h">Where I've worked<br><em>&amp; what I delivered.</em></h2>
+  <div class="tl">
+
+    <div class="tl-item now">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jan 2026 – Present</div>
+      <div class="tl-role">Data Analyst &amp; Analytics Engineer</div>
+      <div class="tl-co">Quipli · Boston, MA</div>
+      <div class="tl-desc">Analyzed pricing, billing, and transaction workflows across a SaaS rental platform to ensure accurate revenue calculation. Defined transactional grain across the full rental lifecycle. Built reconciliation workflows comparing platform data against Stripe and QuickBooks — catching discrepancies before they reached customers. Standardized revenue classification logic to create a single source of truth for downstream reporting.</div>
+      <div class="tl-tags"><span class="tl-tag">SQL</span><span class="tl-tag">Data Reconciliation</span><span class="tl-tag">Revenue Analytics</span><span class="tl-tag">Dimensional Modeling</span><span class="tl-tag">Stripe / QuickBooks</span></div>
+    </div>
+
+    <div class="tl-item now">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Sep 2024 – Present</div>
+      <div class="tl-role">Data Analyst &amp; Analytics Engineer</div>
+      <div class="tl-co">ASOR (American Society of Overseas Research) · Boston, MA</div>
+      <div class="tl-desc">Built the full analytics infrastructure for a 5,000+ stakeholder nonprofit. Designed layered dbt transformation workflows with clean ingestion, staging, and reporting marts. Centralized KPI definitions for Active Members, Renewal Rate, and Funding Utilization. Automated financial reporting pipelines in SQL and Python — cutting turnaround by 40%. Built Power BI and Tableau dashboards for leadership. Reduced data errors and downtime by 30% through referential integrity checks.</div>
+      <div class="tl-tags"><span class="tl-tag">dbt</span><span class="tl-tag">SQL</span><span class="tl-tag">Python</span><span class="tl-tag">Power BI</span><span class="tl-tag">Tableau</span><span class="tl-tag">Dimensional Modeling</span><span class="tl-tag">KPI Design</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jun – Aug 2023</div>
+      <div class="tl-role">Software Developer Intern</div>
+      <div class="tl-co">Qriocity Ventures · Chennai, India</div>
+      <div class="tl-desc">Built SQL pipelines to aggregate and transform 500K+ partner records into structured revenue tables. Optimized indexing strategies for sub-200ms query performance. Developed Flask REST APIs with JWT authentication.</div>
+      <div class="tl-tags"><span class="tl-tag">SQL</span><span class="tl-tag">Flask</span><span class="tl-tag">Query Optimization</span></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">May – Jul 2021</div>
+      <div class="tl-role">Data Analytics Intern</div>
+      <div class="tl-co">Cisco · Chennai, India</div>
+      <div class="tl-desc">Analyzed network traffic across 500+ devices to detect anomalies and performance issues. Built Python dashboards to automate monitoring. Supported root cause analysis through packet-level data investigation.</div>
+      <div class="tl-tags"><span class="tl-tag">Python</span><span class="tl-tag">Anomaly Detection</span><span class="tl-tag">Network Analytics</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="proj">
+  <div class="eyebrow">Projects</div>
+  <h2 class="pg-h">Analysis &amp; pipelines<br><em>that answer business questions.</em></h2>
+
+  <div class="proj-featured">
+
+    <div class="proj-card hi">
+      <div class="proj-top">
+        <div class="proj-num">01 — Data Analysis</div>
+        <a class="proj-ext" href="https://public.tableau.com/app/profile/harshita.loganathan/viz/SaaSChurnIntelligenceDashboard/" target="_blank">View Dashboard →</a>
+      </div>
+      <div class="proj-title">SaaS Customer Churn Intelligence</div>
+      <div class="proj-sub">End-to-end churn analysis of 7,043 records — who churns, why, and what it costs.</div>
+      <div class="proj-chips">
+        <span class="proj-chip">SQL · DuckDB</span>
+        <span class="proj-chip">Python · Pandas</span>
+        <span class="proj-chip">Cohort Analysis</span>
+        <span class="proj-chip">Risk Segmentation</span>
+        <span class="proj-chip">Tableau Public</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="pm"><div class="pm-n">7,043</div><div class="pm-l">Customer records analyzed</div></div>
+        <div class="pm"><div class="pm-n">$1.3M</div><div class="pm-l">Annual revenue at risk</div></div>
+        <div class="pm"><div class="pm-n">16×</div><div class="pm-l">High vs Low risk separation</div></div>
+      </div>
+      <div class="proj-findings">
+        <div class="pf-lbl">Key findings</div>
+        <ul class="pf-list">
+          <li>First-year customers churn at 47% — 5× higher than long-term users (cohort analysis)</li>
+          <li>Month-to-month contracts churn at 43% vs 3% for two-year contracts</li>
+          <li>Risk segmentation: High Risk 49% churn vs 3% Low Risk — 16× separation</li>
+          <li>Quantified $1.3M annual revenue at risk from 3,132 High Risk customers</li>
+          <li>Recommended targeted retention interventions at Month 3, 6, and 12</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="proj-card hi">
+      <div class="proj-top">
+        <div class="proj-num">02 — Data Analysis · Forecasting</div>
+        <a class="proj-ext" href="https://public.tableau.com/app/profile/harshita.loganathan/viz/E-CommerceRevenueIntelligenceDashboard/Dashboard1" target="_blank">View Dashboard →</a>
+      </div>
+      <div class="proj-title">E-Commerce Revenue Intelligence &amp; Forecasting</div>
+      <div class="proj-sub">Revenue plateau diagnosis, RFM segmentation, and Prophet forecast on 100K+ orders.</div>
+      <div class="proj-chips">
+        <span class="proj-chip">SQL · DuckDB</span>
+        <span class="proj-chip">Python · Prophet</span>
+        <span class="proj-chip">RFM Segmentation</span>
+        <span class="proj-chip">Geographic Analysis</span>
+        <span class="proj-chip">Tableau Public</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="pm"><div class="pm-n">100K+</div><div class="pm-l">Orders analyzed</div></div>
+        <div class="pm"><div class="pm-n">$896K</div><div class="pm-l">At-risk revenue identified</div></div>
+        <div class="pm"><div class="pm-n">$1.69M</div><div class="pm-l">Nov 2018 revenue forecast</div></div>
+      </div>
+      <div class="proj-findings">
+        <div class="pf-lbl">Key findings</div>
+        <ul class="pf-list">
+          <li>Diagnosed revenue plateau at ~$1M/month — growth engine stalled at 6,500–7,000 orders/month</li>
+          <li>Champions + Loyal customers (50%) generate 67.6% of all revenue</li>
+          <li>13,660 At Risk customers represent $896K annual revenue at risk</li>
+          <li>SP generates 37.4% of revenue; PA and CE are high-AOV underserved markets</li>
+          <li>Prophet forecast: 36% revenue growth Sep → Nov 2018 driven by seasonal surge</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="eyebrow" style="margin-bottom:1rem;">More projects</div>
+  <div class="proj-grid">
+    <div class="proj-sm">
+      <div class="proj-sm-n">03 — Analytics Engineering</div>
+      <div class="proj-sm-title">Revenue Forecasting &amp; Financial Modeling Pipeline</div>
+      <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">dbt</span><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">Power BI</span></div>
+      <div class="proj-sm-desc">Structured financial datasets into analytics-ready fact tables with standardized revenue, churn, and burn-rate definitions. Automated reporting — cut manual effort 40%. Reconciliation queries validate forecasts against actuals.</div>
+    </div>
+    <div class="proj-sm">
+      <div class="proj-sm-n">04 — Data Analysis</div>
+      <div class="proj-sm-title">Fraud Detection &amp; Transaction Monitoring</div>
+      <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">XGBoost</span><span class="proj-sm-chip">Power BI</span></div>
+      <div class="proj-sm-desc">Processed 280K+ transactions with feature engineering. XGBoost model at 96% recall. Power BI dashboard surfaces flagged transactions for live analyst review.</div>
+    </div>
+    <div class="proj-sm">
+      <div class="proj-sm-n">05 — Data Engineering</div>
+      <div class="proj-sm-title">Food Allergy &amp; Ingredient Ingestion Pipeline</div>
+      <div class="proj-sm-chips"><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">PostgreSQL</span><span class="proj-sm-chip">OCR</span><span class="proj-sm-chip">FastAPI</span></div>
+      <div class="proj-sm-desc">OCR pipeline extracting ingredient labels into a normalized PostgreSQL schema. ETL logic, allergen risk scoring, and REST API backend for real-time product queries.</div>
+    </div>
+    <div class="proj-sm">
+      <div class="proj-sm-n">06 — Analytics Engineering</div>
+      <div class="proj-sm-title">Demand Forecasting &amp; Inventory Analysis</div>
+      <div class="proj-sm-chips"><span class="proj-sm-chip">ARIMA</span><span class="proj-sm-chip">Prophet</span><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">Tableau</span></div>
+      <div class="proj-sm-desc">Forecasting models across 15+ product categories, 25% accuracy improvement. SQL aggregation layers and Tableau dashboards supporting procurement planning decisions.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="page" id="skills">
+  <div class="eyebrow">Skills</div>
+  <h2 class="pg-h">Tools &amp; technologies<br><em>I work with.</em></h2>
+  <div class="skill-block">
+    <div class="skill-lbl">SQL &amp; Databases</div>
+    <div class="skill-pills"><span class="sk">Advanced SQL</span><span class="sk">PostgreSQL</span><span class="sk">BigQuery</span><span class="sk">Snowflake</span><span class="sk">DuckDB</span><span class="sk">MySQL</span><span class="sk">CTEs &amp; Window Functions</span></div>
+  </div>
+  <div class="skill-block">
+    <div class="skill-lbl">Analytics Engineering</div>
+    <div class="skill-pills"><span class="sk">dbt</span><span class="sk">Dimensional Modeling</span><span class="sk">Star Schema</span><span class="sk">Grain Definition</span><span class="sk">Incremental Modeling</span><span class="sk">Semantic Layer</span><span class="sk">KPI Standardization</span></div>
+  </div>
+  <div class="skill-block">
+    <div class="skill-lbl">Python &amp; Analysis</div>
+    <div class="skill-pills"><span class="sk">Python</span><span class="sk">Pandas</span><span class="sk">NumPy</span><span class="sk">Matplotlib</span><span class="sk">Seaborn</span><span class="sk">Prophet</span><span class="sk">XGBoost</span></div>
+  </div>
+  <div class="skill-block">
+    <div class="skill-lbl">BI &amp; Visualization</div>
+    <div class="skill-pills"><span class="sk">Power BI</span><span class="sk">Tableau</span><span class="sk">Excel</span></div>
+  </div>
+  <div class="skill-block">
+    <div class="skill-lbl">Analytics Methods</div>
+    <div class="skill-pills"><span class="sk">Cohort Analysis</span><span class="sk">RFM Segmentation</span><span class="sk">KPI Development</span><span class="sk">Revenue Analysis</span><span class="sk">Forecasting</span><span class="sk">Data Reconciliation</span><span class="sk">ETL / ELT</span></div>
+  </div>
+  <div class="skill-block">
+    <div class="skill-lbl">Tools</div>
+    <div class="skill-pills"><span class="sk">Git</span><span class="sk">GitHub Actions</span><span class="sk">Docker (basic)</span><span class="sk">HubSpot CRM</span><span class="sk">Jira</span></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="contact">
+  <div class="eyebrow">Contact</div>
+  <h2 class="pg-h">Let's connect<br><em>&amp; build something great.</em></h2>
+  <p class="contact-note">Open to full-time roles in data analysis and analytics engineering. Boston-based — open to hybrid or remote. Always happy to chat, no pressure.</p>
+  <div class="c-list">
+    <a class="c-card" href="mailto:hloganathan@umass.edu">
+      <div class="c-icon">@</div><div><div class="c-lbl">Email</div><div class="c-val">hloganathan@umass.edu</div></div>
+    </a>
+    <a class="c-card" href="https://linkedin.com/in/harshitaloganathan" target="_blank">
+      <div class="c-icon">in</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/harshitaloganathan</div></div>
+    </a>
+    <a class="c-card" href="https://github.com/Hloganathan08" target="_blank">
+      <div class="c-icon">gh</div><div><div class="c-lbl">GitHub</div><div class="c-val">github.com/Hloganathan08</div></div>
+    </a>
+    <a class="c-card" href="tel:4133793215">
+      <div class="c-icon" style="font-size:11px;">tel</div><div><div class="c-lbl">Phone</div><div class="c-val">(413) 379-3215</div></div>
+    </a>
+  </div>
+</div>
+
+<!-- RESUME -->
+<div class="page" id="resume">
+  <div class="eyebrow">Resume</div>
+  <h2 class="pg-h" style="margin-bottom:0.75rem;">Harshita Loganathan<br><em>Role-specific resumes.</em></h2>
+  <p class="body-p" style="margin-bottom:1.5rem;">Select the version tailored to the role you're hiring for.</p>
+  <div class="res-tabs">
+    <div class="res-tab on"  onclick="swRes('resume_da.pdf','DA',this)">Data Analyst</div>
+    <div class="res-tab"     onclick="swRes('resume_ae.pdf','AE',this)">Analytics Engineer</div>
+    <div class="res-tab"     onclick="swRes('resume_de.pdf','DE',this)">Data Engineer</div>
+    <div class="res-tab"     onclick="swRes('resume_fs.pdf','FS',this)">Full Stack Engineer</div>
+    <div class="res-tab"     onclick="swRes('resume_se.pdf','SE',this)">Software Engineer</div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+    <a class="dl-btn" id="dlbtn" href="resume_da.pdf" download="Harshita_Loganathan_DA_Resume.pdf">
+      <svg style="width:14px;height:14px;flex-shrink:0;" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 1v8M4 6l3 3 3-3M2 11h10"/></svg>
+      Download PDF
+    </a>
+  </div>
+  <div class="resume-frame-wrap">
+    <iframe id="res-frame" src="resume_da.pdf" title="Resume"></iframe>
+  </div>
+</div>
+
+</main>
+</div>
+
+<script>
+function go(id, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.nav-a').forEach(n => n.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  if (el) el.classList.add('on');
+}
+function swRes(file, code, el) {
+  document.querySelectorAll('.res-tab').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('res-frame').src = file;
+  var btn = document.getElementById('dlbtn');
+  btn.href = file;
+  btn.download = 'Harshita_Loganathan_' + code + '_Resume.pdf';
+}
+</script>
+</body>
+</html>
