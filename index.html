@@ -391,30 +391,95 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       </div>
     </div>
 
+    <div class="proj-card hi">
+      <div class="proj-top">
+        <div class="proj-num">03 — Analytics Engineering</div>
+        <a class="proj-ext" href="https://github.com/Hloganathan08/dbt-ecommerce-analytics" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="proj-title">dbt E-Commerce Analytics — Production dbt Project</div>
+      <div class="proj-sub">3-layer medallion architecture on BigQuery modeling 100K+ Olist orders with a full MetricFlow semantic layer.</div>
+      <div class="proj-chips">
+        <span class="proj-chip">dbt Core 1.8</span>
+        <span class="proj-chip">BigQuery</span>
+        <span class="proj-chip">MetricFlow</span>
+        <span class="proj-chip">dbt-utils</span>
+        <span class="proj-chip">dbt-expectations</span>
+        <span class="proj-chip">Star Schema</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="pm"><div class="pm-n">100K+</div><div class="pm-l">Raw rows modeled</div></div>
+        <div class="pm"><div class="pm-n">11</div><div class="pm-l">dbt models</div></div>
+        <div class="pm"><div class="pm-n">23</div><div class="pm-l">Tests — all passing</div></div>
+      </div>
+      <div class="proj-findings">
+        <div class="pf-lbl">What was built</div>
+        <ul class="pf-list">
+          <li>3-layer architecture: raw → staging (5 views) → intermediate → marts (4 tables)</li>
+          <li>Star schema: fct_orders (99K rows, incremental), fct_order_items (112K rows), dim_customers, dim_products</li>
+          <li>Incremental materialization on fct_orders using is_incremental() — only processes new rows on each run</li>
+          <li>Surrogate keys via dbt_utils.generate_surrogate_key() on all mart models</li>
+          <li>Advanced tests with dbt-expectations: column range checks, type validation, length enforcement</li>
+          <li>MetricFlow semantic layer: 10 standardized metrics (GMV, delivery rate, CLV, avg order value) across 3 semantic models</li>
+          <li>Custom Jinja macro, source freshness checks (warn 24h / error 48h), and exposure declarations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="proj-card hi">
+      <div class="proj-top">
+        <div class="proj-num">04 — Analytics Engineering · Data Engineering</div>
+        <a class="proj-ext" href="https://github.com/Hloganathan08/dbt-airflow-pipeline" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="proj-title">dbt + Airflow ELT Pipeline — End-to-End Orchestration</div>
+      <div class="proj-sub">Production-style ELT pipeline orchestrating ingestion, dbt transformations, and data quality validation with Apache Airflow.</div>
+      <div class="proj-chips">
+        <span class="proj-chip">Apache Airflow 2.8</span>
+        <span class="proj-chip">dbt Core 1.8</span>
+        <span class="proj-chip">BigQuery</span>
+        <span class="proj-chip">Python · Pandas</span>
+        <span class="proj-chip">ELT Orchestration</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="pm"><div class="pm-n">3</div><div class="pm-l">Orchestrated pipeline tasks</div></div>
+        <div class="pm"><div class="pm-n">23</div><div class="pm-l">dbt quality gate tests</div></div>
+        <div class="pm"><div class="pm-n">Daily</div><div class="pm-l">Scheduled at 6am UTC</div></div>
+      </div>
+      <div class="proj-findings">
+        <div class="pf-lbl">Pipeline architecture</div>
+        <ul class="pf-list">
+          <li>Task 1 — ingest_raw_data: Python ingestion loads 5 Olist CSVs into BigQuery using WRITE_TRUNCATE for idempotency</li>
+          <li>Task 2 — dbt_run: BashOperator triggers all dbt models in dependency order (staging → intermediate → marts)</li>
+          <li>Task 3 — dbt_test: runs all 23 tests as a quality gate — pipeline fails before bad data reaches dashboards</li>
+          <li>Full task dependency chain: ingest_raw_data >> dbt_run >> dbt_test</li>
+          <li>Retry logic on dbt_test: 1 retry with 5-minute delay; daily schedule with catchup=False</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
   <div class="eyebrow" style="margin-bottom:1rem;">More projects</div>
   <div class="proj-grid">
     <div class="proj-sm">
-      <div class="proj-sm-n">03 — Analytics Engineering</div>
+      <div class="proj-sm-n">05 — Analytics Engineering</div>
       <div class="proj-sm-title">Revenue Forecasting &amp; Financial Modeling Pipeline</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">dbt</span><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">Power BI</span></div>
       <div class="proj-sm-desc">Structured financial datasets into analytics-ready fact tables with standardized revenue, churn, and burn-rate definitions. Automated reporting — cut manual effort 40%. Reconciliation queries validate forecasts against actuals.</div>
     </div>
     <div class="proj-sm">
-      <div class="proj-sm-n">04 — Data Analysis</div>
+      <div class="proj-sm-n">06 — Data Analysis</div>
       <div class="proj-sm-title">Fraud Detection &amp; Transaction Monitoring</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">XGBoost</span><span class="proj-sm-chip">Power BI</span></div>
       <div class="proj-sm-desc">Processed 280K+ transactions with feature engineering. XGBoost model at 96% recall. Power BI dashboard surfaces flagged transactions for live analyst review.</div>
     </div>
     <div class="proj-sm">
-      <div class="proj-sm-n">05 — Data Engineering</div>
+      <div class="proj-sm-n">07 — Data Engineering</div>
       <div class="proj-sm-title">Food Allergy &amp; Ingredient Ingestion Pipeline</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">PostgreSQL</span><span class="proj-sm-chip">OCR</span><span class="proj-sm-chip">FastAPI</span></div>
       <div class="proj-sm-desc">OCR pipeline extracting ingredient labels into a normalized PostgreSQL schema. ETL logic, allergen risk scoring, and REST API backend for real-time product queries.</div>
     </div>
     <div class="proj-sm">
-      <div class="proj-sm-n">06 — Analytics Engineering</div>
+      <div class="proj-sm-n">08 — Data Analysis</div>
       <div class="proj-sm-title">Demand Forecasting &amp; Inventory Analysis</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">ARIMA</span><span class="proj-sm-chip">Prophet</span><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">Tableau</span></div>
       <div class="proj-sm-desc">Forecasting models across 15+ product categories, 25% accuracy improvement. SQL aggregation layers and Tableau dashboards supporting procurement planning decisions.</div>
@@ -499,7 +564,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
 </main>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function go(id, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.nav-a').forEach(n => n.classList.remove('on'));
@@ -507,4 +572,13 @@ function go(id, el) {
   if (el) el.classList.add('on');
 }
 function swRes(file, code, el) {
-  document.querySelecto
+  document.querySelectorAll('.res-tab').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('res-frame').src = file;
+  var btn = document.getElementById('dlbtn');
+  btn.href = file;
+  btn.download = 'Harshita_Loganathan_' + code + '_Resume.pdf';
+}
+</script>
+</body>
+</html>
