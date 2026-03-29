@@ -32,10 +32,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
 .nav-a.on{background:rgba(255,255,255,0.1);color:#fff;font-weight:500;}
 .nav-pip{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);flex-shrink:0;transition:background 0.15s;}
 .nav-a.on .nav-pip{background:var(--accent);}
-.nav-a.res-nav{color:rgba(200,96,42,0.8);}
-.nav-a.res-nav:hover{background:rgba(200,96,42,0.1);color:var(--accent);}
-.nav-a.res-nav.on{background:rgba(200,96,42,0.14);color:var(--accent);}
-.nav-a.res-nav .nav-pip,.nav-a.res-nav.on .nav-pip{background:var(--accent);}
 .sb-foot{padding:1.25rem 2rem;border-top:1px solid rgba(255,255,255,0.07);}
 .sb-links{display:flex;gap:12px;flex-wrap:wrap;}
 .sb-links a{font-size:11px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.15s;}
@@ -142,14 +138,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
 .c-val{font-size:13px;color:var(--black);margin-top:1px;}
 
 /* ── RESUME ── */
-.res-tabs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem;}
-.res-tab{font-size:12px;font-weight:400;color:var(--mid);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer;transition:all 0.15s;user-select:none;}
-.res-tab:hover{border-color:var(--faint);}
-.res-tab.on{background:var(--black);color:#fff;border-color:var(--black);}
-.dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:500;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;text-decoration:none;transition:opacity 0.15s;}
-.dl-btn:hover{opacity:0.88;}
-.resume-frame-wrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--white);}
-.resume-frame-wrap iframe{width:100%;height:76vh;min-height:500px;border:none;display:block;}
 
 @media(max-width:720px){
   .shell{grid-template-columns:1fr;}
@@ -184,9 +172,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
     <div class="nav-a"          onclick="go('exp',this)"><span class="nav-pip"></span>Experience</div>
     <div class="nav-a"          onclick="go('proj',this)"><span class="nav-pip"></span>Projects</div>
     <div class="nav-a"          onclick="go('skills',this)"><span class="nav-pip"></span>Skills</div>
-    <div class="nav-a"          onclick="go('contact',this)"><span class="nav-pip"></span>Contact</div>
-    <div class="nav-a res-nav"  onclick="go('resume',this)"><span class="nav-pip"></span>Resume</div>
-  </nav>
+    <div class="nav-a"          onclick="go('contact',this)"><span class="nav-pip"></span>Contact</div>  </nav>
   <div class="sb-foot">
     <div class="sb-links">
       <a href="https://linkedin.com/in/harshitaloganathan" target="_blank">LinkedIn</a>
@@ -537,30 +523,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
     </a>
   </div>
 </div>
-
-<!-- RESUME -->
-<div class="page" id="resume">
-  <div class="eyebrow">Resume</div>
-  <h2 class="pg-h" style="margin-bottom:0.75rem;">Harshita Loganathan<br><em>Role-specific resumes.</em></h2>
-  <p class="body-p" style="margin-bottom:1.5rem;">Select the version tailored to the role you're hiring for.</p>
-  <div class="res-tabs">
-    <div class="res-tab on"  onclick="swRes('Harshita_Loganathan_DA_Resume.pdf','DA',this)">Data Analyst</div>
-    <div class="res-tab"     onclick="swRes('Harshita_Loganathan_AE_Resume.pdf','AE',this)">Analytics Engineer</div>
-    <div class="res-tab"     onclick="swRes('Harshita_Loganathan_DE_Resume.pdf','DE',this)">Data Engineer</div>
-    <div class="res-tab"     onclick="swRes('Harshita_Loganathan_FS_Resume.pdf','FS',this)">Full Stack Engineer</div>
-    <div class="res-tab"     onclick="swRes('Harshita_Loganathan_SE_Resume.pdf','SE',this)">Software Engineer</div>
-  </div>
-  <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
-    <a class="dl-btn" id="dlbtn" href="Harshita_Loganathan_DA_Resume.pdf" download="Harshita_Loganathan_DA_Resume.pdf">
-      <svg style="width:14px;height:14px;flex-shrink:0;" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 1v8M4 6l3 3 3-3M2 11h10"/></svg>
-      Download PDF
-    </a>
-  </div>
-  <div class="resume-frame-wrap">
-    <iframe id="res-frame" src="Harshita_Loganathan_DA_Resume.pdf" title="Resume"></iframe>
-  </div>
-</div>
-
 </main>
 </div>
 
@@ -570,14 +532,6 @@ function go(id, el) {
   document.querySelectorAll('.nav-a').forEach(n => n.classList.remove('on'));
   document.getElementById(id).classList.add('on');
   if (el) el.classList.add('on');
-}
-function swRes(file, code, el) {
-  document.querySelectorAll('.res-tab').forEach(t => t.classList.remove('on'));
-  el.classList.add('on');
-  document.getElementById('res-frame').src = file;
-  var btn = document.getElementById('dlbtn');
-  btn.href = file;
-  btn.download = 'Harshita_Loganathan_' + code + '_Resume.pdf';
 }
 </script>
 </body>
