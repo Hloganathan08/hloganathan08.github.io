@@ -442,30 +442,67 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       </div>
     </div>
 
+    <div class="proj-card hi">
+      <div class="proj-top">
+        <div class="proj-num">05 — Full Stack · Software Engineering</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a class="proj-ext" href="https://hloganathan08.github.io/ai-finance-ops/" target="_blank">Live App →</a>
+          <a class="proj-ext" href="https://github.com/Hloganathan08/ai-finance-ops" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="proj-title">AI Finance Ops Platform</div>
+      <div class="proj-sub">Production-grade multi-tenant SaaS billing platform with AI-powered natural language insights — live on GitHub Pages + Render.</div>
+      <div class="proj-chips">
+        <span class="proj-chip">FastAPI</span>
+        <span class="proj-chip">React + TypeScript</span>
+        <span class="proj-chip">PostgreSQL</span>
+        <span class="proj-chip">Claude AI</span>
+        <span class="proj-chip">Stripe</span>
+        <span class="proj-chip">Celery + Redis</span>
+        <span class="proj-chip">Alembic</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="pm"><div class="pm-n">Multi-tenant</div><div class="pm-l">Tenant-isolated architecture</div></div>
+        <div class="pm"><div class="pm-n">AI-powered</div><div class="pm-l">Plain English billing queries</div></div>
+        <div class="pm"><div class="pm-n">Live</div><div class="pm-l">Deployed on Render + GitHub Pages</div></div>
+      </div>
+      <div class="proj-findings">
+        <div class="pf-lbl">What was built</div>
+        <ul class="pf-list">
+          <li>Multi-tenant billing platform — plan management, Stripe payments, subscription lifecycle, transaction tracking</li>
+          <li>AI billing assistant using Claude API — users ask billing questions in plain English, get structured insights and anomaly detection</li>
+          <li>PostgreSQL schema with full tenant isolation, audit logging, and idempotency keys preventing duplicate charges</li>
+          <li>Async invoice generation via Celery + Redis with retry logic and exponential backoff</li>
+          <li>React + TypeScript frontend with JWT auth, real-time revenue charts (Recharts), HashRouter for GitHub Pages</li>
+          <li>Full deployment: FastAPI on Render, frontend on GitHub Pages, Alembic migrations run on startup</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
   <div class="eyebrow" style="margin-bottom:1rem;">More projects</div>
   <div class="proj-grid">
     <div class="proj-sm">
-      <div class="proj-sm-n">05 — Analytics Engineering</div>
+      <div class="proj-sm-n">06 — Analytics Engineering</div>
       <div class="proj-sm-title">Revenue Forecasting &amp; Financial Modeling Pipeline</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">dbt</span><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">Power BI</span></div>
       <div class="proj-sm-desc">Structured financial datasets into analytics-ready fact tables with standardized revenue, churn, and burn-rate definitions. Automated reporting — cut manual effort 40%. Reconciliation queries validate forecasts against actuals.</div>
     </div>
     <div class="proj-sm">
-      <div class="proj-sm-n">06 — Data Analysis</div>
+      <div class="proj-sm-n">07 — Data Analysis</div>
       <div class="proj-sm-title">Fraud Detection &amp; Transaction Monitoring</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">XGBoost</span><span class="proj-sm-chip">Power BI</span></div>
       <div class="proj-sm-desc">Processed 280K+ transactions with feature engineering. XGBoost model at 96% recall. Power BI dashboard surfaces flagged transactions for live analyst review.</div>
     </div>
     <div class="proj-sm">
-      <div class="proj-sm-n">07 — Data Engineering</div>
+      <div class="proj-sm-n">08 — Data Engineering</div>
       <div class="proj-sm-title">Food Allergy &amp; Ingredient Ingestion Pipeline</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">PostgreSQL</span><span class="proj-sm-chip">OCR</span><span class="proj-sm-chip">FastAPI</span></div>
       <div class="proj-sm-desc">OCR pipeline extracting ingredient labels into a normalized PostgreSQL schema. ETL logic, allergen risk scoring, and REST API backend for real-time product queries.</div>
     </div>
     <div class="proj-sm">
-      <div class="proj-sm-n">08 — Data Analysis</div>
+      <div class="proj-sm-n">09 — Data Analysis</div>
       <div class="proj-sm-title">Demand Forecasting &amp; Inventory Analysis</div>
       <div class="proj-sm-chips"><span class="proj-sm-chip">ARIMA</span><span class="proj-sm-chip">Prophet</span><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">Tableau</span></div>
       <div class="proj-sm-desc">Forecasting models across 15+ product categories, 25% accuracy improvement. SQL aggregation layers and Tableau dashboards supporting procurement planning decisions.</div>
