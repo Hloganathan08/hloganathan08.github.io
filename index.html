@@ -113,14 +113,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
 .pf-list{list-style:none;padding:0;}
 .pf-list li{font-size:12px;font-weight:300;color:var(--mid);line-height:1.65;padding:2px 0 2px 16px;position:relative;}
 .pf-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.proj-sm{border:1px solid var(--line);border-radius:12px;padding:1.4rem;background:var(--white);transition:border-color 0.15s,transform 0.15s;}
-.proj-sm:hover{border-color:var(--faint);transform:translateY(-2px);}
-.proj-sm-n{font-family:'Fraunces',serif;font-size:0.85rem;font-style:italic;color:var(--faint);margin-bottom:4px;}
-.proj-sm-title{font-size:13px;font-weight:500;color:var(--black);line-height:1.4;margin-bottom:6px;}
-.proj-sm-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
-.proj-sm-chip{font-size:10px;color:var(--muted);background:var(--surface);border-radius:3px;padding:2px 7px;}
-.proj-sm-desc{font-size:12px;font-weight:300;color:var(--mid);line-height:1.7;}
 
 /* ── SKILLS ── */
 .skill-block{margin-bottom:1.75rem;}
@@ -137,8 +129,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
 .c-lbl{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);}
 .c-val{font-size:13px;color:var(--black);margin-top:1px;}
 
-/* ── RESUME ── */
-
 @media(max-width:720px){
   .shell{grid-template-columns:1fr;}
   .sb{position:static;height:auto;}
@@ -148,7 +138,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
   .sb-foot{padding:1rem 1.25rem;}
   .page{padding:2rem 1.25rem 3rem;}
   .stat-grid,.proj-metrics,.home-two-cols{grid-template-columns:1fr 1fr;}
-  .proj-grid{grid-template-columns:1fr;}
   .pg-h{font-size:1.85rem;}
 }
 </style>
@@ -166,18 +155,19 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
   </div>
   <nav class="sb-nav">
     <div class="nav-label">Pages</div>
-    <div class="nav-a on"       onclick="go('home',this)"><span class="nav-pip"></span>Home</div>
-    <div class="nav-a"          onclick="go('about',this)"><span class="nav-pip"></span>About</div>
-    <div class="nav-a"          onclick="go('edu',this)"><span class="nav-pip"></span>Education</div>
-    <div class="nav-a"          onclick="go('exp',this)"><span class="nav-pip"></span>Experience</div>
-    <div class="nav-a"          onclick="go('proj',this)"><span class="nav-pip"></span>Projects</div>
-    <div class="nav-a"          onclick="go('skills',this)"><span class="nav-pip"></span>Skills</div>
-    <div class="nav-a"          onclick="go('contact',this)"><span class="nav-pip"></span>Contact</div>  </nav>
+    <div class="nav-a on"  onclick="go('home',this)"><span class="nav-pip"></span>Home</div>
+    <div class="nav-a"     onclick="go('about',this)"><span class="nav-pip"></span>About</div>
+    <div class="nav-a"     onclick="go('edu',this)"><span class="nav-pip"></span>Education</div>
+    <div class="nav-a"     onclick="go('exp',this)"><span class="nav-pip"></span>Experience</div>
+    <div class="nav-a"     onclick="go('proj',this)"><span class="nav-pip"></span>Projects</div>
+    <div class="nav-a"     onclick="go('skills',this)"><span class="nav-pip"></span>Skills</div>
+    <div class="nav-a"     onclick="go('contact',this)"><span class="nav-pip"></span>Contact</div>
+  </nav>
   <div class="sb-foot">
     <div class="sb-links">
       <a href="https://linkedin.com/in/harshitaloganathan" target="_blank">LinkedIn</a>
       <a href="https://github.com/Hloganathan08" target="_blank">GitHub</a>
-      <a href="/cdn-cgi/l/email-protection#264e4a4941474847524e474866534b47555508434253">Email</a>
+      <a href="mailto:hloganathan@umass.edu">Email</a>
     </div>
   </div>
 </aside>
@@ -268,7 +258,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
   <div class="eyebrow">Experience</div>
   <h2 class="pg-h">Where I've worked<br><em>&amp; what I delivered.</em></h2>
   <div class="tl">
-
     <div class="tl-item now">
       <div class="tl-dot"></div>
       <div class="tl-date">Jan 2026 – Present</div>
@@ -277,7 +266,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="tl-desc">Analyzed pricing, billing, and transaction workflows across a SaaS rental platform to ensure accurate revenue calculation. Defined transactional grain across the full rental lifecycle. Built reconciliation workflows comparing platform data against Stripe and QuickBooks — catching discrepancies before they reached customers. Standardized revenue classification logic to create a single source of truth for downstream reporting.</div>
       <div class="tl-tags"><span class="tl-tag">SQL</span><span class="tl-tag">Data Reconciliation</span><span class="tl-tag">Revenue Analytics</span><span class="tl-tag">Dimensional Modeling</span><span class="tl-tag">Stripe / QuickBooks</span></div>
     </div>
-
     <div class="tl-item now">
       <div class="tl-dot"></div>
       <div class="tl-date">Sep 2024 – Present</div>
@@ -286,7 +274,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="tl-desc">Built the full analytics infrastructure for a 5,000+ stakeholder nonprofit. Designed layered dbt transformation workflows with clean ingestion, staging, and reporting marts. Centralized KPI definitions for Active Members, Renewal Rate, and Funding Utilization. Automated financial reporting pipelines in SQL and Python — cutting turnaround by 40%. Built Power BI and Tableau dashboards for leadership. Reduced data errors and downtime by 30% through referential integrity checks.</div>
       <div class="tl-tags"><span class="tl-tag">dbt</span><span class="tl-tag">SQL</span><span class="tl-tag">Python</span><span class="tl-tag">Power BI</span><span class="tl-tag">Tableau</span><span class="tl-tag">Dimensional Modeling</span><span class="tl-tag">KPI Design</span></div>
     </div>
-
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-date">Jun – Aug 2023</div>
@@ -295,7 +282,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="tl-desc">Built SQL pipelines to aggregate and transform 500K+ partner records into structured revenue tables. Optimized indexing strategies for sub-200ms query performance. Developed Flask REST APIs with JWT authentication.</div>
       <div class="tl-tags"><span class="tl-tag">SQL</span><span class="tl-tag">Flask</span><span class="tl-tag">Query Optimization</span></div>
     </div>
-
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-date">May – Jul 2021</div>
@@ -304,7 +290,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="tl-desc">Analyzed network traffic across 500+ devices to detect anomalies and performance issues. Built Python dashboards to automate monitoring. Supported root cause analysis through packet-level data investigation.</div>
       <div class="tl-tags"><span class="tl-tag">Python</span><span class="tl-tag">Anomaly Detection</span><span class="tl-tag">Network Analytics</span></div>
     </div>
-
   </div>
 </div>
 
@@ -323,11 +308,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="proj-title">SaaS Customer Churn Intelligence</div>
       <div class="proj-sub">End-to-end churn analysis of 7,043 records — who churns, why, and what it costs.</div>
       <div class="proj-chips">
-        <span class="proj-chip">SQL · DuckDB</span>
-        <span class="proj-chip">Python · Pandas</span>
-        <span class="proj-chip">Cohort Analysis</span>
-        <span class="proj-chip">Risk Segmentation</span>
-        <span class="proj-chip">Tableau Public</span>
+        <span class="proj-chip">SQL · DuckDB</span><span class="proj-chip">Python · Pandas</span><span class="proj-chip">Cohort Analysis</span><span class="proj-chip">Risk Segmentation</span><span class="proj-chip">Tableau Public</span>
       </div>
       <div class="proj-metrics">
         <div class="pm"><div class="pm-n">7,043</div><div class="pm-l">Customer records analyzed</div></div>
@@ -354,11 +335,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="proj-title">E-Commerce Revenue Intelligence &amp; Forecasting</div>
       <div class="proj-sub">Revenue plateau diagnosis, RFM segmentation, and Prophet forecast on 100K+ orders.</div>
       <div class="proj-chips">
-        <span class="proj-chip">SQL · DuckDB</span>
-        <span class="proj-chip">Python · Prophet</span>
-        <span class="proj-chip">RFM Segmentation</span>
-        <span class="proj-chip">Geographic Analysis</span>
-        <span class="proj-chip">Tableau Public</span>
+        <span class="proj-chip">SQL · DuckDB</span><span class="proj-chip">Python · Prophet</span><span class="proj-chip">RFM Segmentation</span><span class="proj-chip">Geographic Analysis</span><span class="proj-chip">Tableau Public</span>
       </div>
       <div class="proj-metrics">
         <div class="pm"><div class="pm-n">100K+</div><div class="pm-l">Orders analyzed</div></div>
@@ -385,12 +362,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="proj-title">dbt E-Commerce Analytics — Production dbt Project</div>
       <div class="proj-sub">3-layer medallion architecture on BigQuery modeling 100K+ Olist orders with a full MetricFlow semantic layer.</div>
       <div class="proj-chips">
-        <span class="proj-chip">dbt Core 1.8</span>
-        <span class="proj-chip">BigQuery</span>
-        <span class="proj-chip">MetricFlow</span>
-        <span class="proj-chip">dbt-utils</span>
-        <span class="proj-chip">dbt-expectations</span>
-        <span class="proj-chip">Star Schema</span>
+        <span class="proj-chip">dbt Core 1.8</span><span class="proj-chip">BigQuery</span><span class="proj-chip">MetricFlow</span><span class="proj-chip">dbt-utils</span><span class="proj-chip">dbt-expectations</span><span class="proj-chip">Star Schema</span>
       </div>
       <div class="proj-metrics">
         <div class="pm"><div class="pm-n">100K+</div><div class="pm-l">Raw rows modeled</div></div>
@@ -404,9 +376,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
           <li>Star schema: fct_orders (99K rows, incremental), fct_order_items (112K rows), dim_customers, dim_products</li>
           <li>Incremental materialization on fct_orders using is_incremental() — only processes new rows on each run</li>
           <li>Surrogate keys via dbt_utils.generate_surrogate_key() on all mart models</li>
-          <li>Advanced tests with dbt-expectations: column range checks, type validation, length enforcement</li>
-          <li>MetricFlow semantic layer: 10 standardized metrics (GMV, delivery rate, CLV, avg order value) across 3 semantic models</li>
-          <li>Custom Jinja macro, source freshness checks (warn 24h / error 48h), and exposure declarations</li>
+          <li>MetricFlow semantic layer: 10 standardized metrics across 3 semantic models</li>
+          <li>Custom Jinja macro, source freshness checks, and exposure declarations</li>
         </ul>
       </div>
     </div>
@@ -419,11 +390,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="proj-title">dbt + Airflow ELT Pipeline — End-to-End Orchestration</div>
       <div class="proj-sub">Production-style ELT pipeline orchestrating ingestion, dbt transformations, and data quality validation with Apache Airflow.</div>
       <div class="proj-chips">
-        <span class="proj-chip">Apache Airflow 2.8</span>
-        <span class="proj-chip">dbt Core 1.8</span>
-        <span class="proj-chip">BigQuery</span>
-        <span class="proj-chip">Python · Pandas</span>
-        <span class="proj-chip">ELT Orchestration</span>
+        <span class="proj-chip">Apache Airflow 2.8</span><span class="proj-chip">dbt Core 1.8</span><span class="proj-chip">BigQuery</span><span class="proj-chip">Python · Pandas</span><span class="proj-chip">ELT Orchestration</span>
       </div>
       <div class="proj-metrics">
         <div class="pm"><div class="pm-n">3</div><div class="pm-l">Orchestrated pipeline tasks</div></div>
@@ -434,7 +401,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
         <div class="pf-lbl">Pipeline architecture</div>
         <ul class="pf-list">
           <li>Task 1 — ingest_raw_data: Python ingestion loads 5 Olist CSVs into BigQuery using WRITE_TRUNCATE for idempotency</li>
-          <li>Task 2 — dbt_run: BashOperator triggers all dbt models in dependency order (staging → intermediate → marts)</li>
+          <li>Task 2 — dbt_run: BashOperator triggers all dbt models in dependency order</li>
           <li>Task 3 — dbt_test: runs all 23 tests as a quality gate — pipeline fails before bad data reaches dashboards</li>
           <li>Full task dependency chain: ingest_raw_data >> dbt_run >> dbt_test</li>
           <li>Retry logic on dbt_test: 1 retry with 5-minute delay; daily schedule with catchup=False</li>
@@ -453,13 +420,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
       <div class="proj-title">AI Finance Ops Platform</div>
       <div class="proj-sub">Production-grade multi-tenant SaaS billing platform with AI-powered natural language insights — live on GitHub Pages + Render.</div>
       <div class="proj-chips">
-        <span class="proj-chip">FastAPI</span>
-        <span class="proj-chip">React + TypeScript</span>
-        <span class="proj-chip">PostgreSQL</span>
-        <span class="proj-chip">Claude AI</span>
-        <span class="proj-chip">Stripe</span>
-        <span class="proj-chip">Celery + Redis</span>
-        <span class="proj-chip">Alembic</span>
+        <span class="proj-chip">FastAPI</span><span class="proj-chip">React + TypeScript</span><span class="proj-chip">PostgreSQL</span><span class="proj-chip">Claude AI</span><span class="proj-chip">Stripe</span><span class="proj-chip">Celery + Redis</span>
       </div>
       <div class="proj-metrics">
         <div class="pm"><div class="pm-n">Multi-tenant</div><div class="pm-l">Tenant-isolated architecture</div></div>
@@ -473,40 +434,38 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
           <li>AI billing assistant using Claude API — users ask billing questions in plain English, get structured insights and anomaly detection</li>
           <li>PostgreSQL schema with full tenant isolation, audit logging, and idempotency keys preventing duplicate charges</li>
           <li>Async invoice generation via Celery + Redis with retry logic and exponential backoff</li>
-          <li>React + TypeScript frontend with JWT auth, real-time revenue charts (Recharts), HashRouter for GitHub Pages</li>
-          <li>Full deployment: FastAPI on Render, frontend on GitHub Pages, Alembic migrations run on startup</li>
+          <li>React + TypeScript frontend with JWT auth, real-time revenue charts, HashRouter for GitHub Pages</li>
         </ul>
       </div>
     </div>
 
-  </div>
+    <div class="proj-card hi">
+      <div class="proj-top">
+        <div class="proj-num">06 — Full Stack · AI Engineering</div>
+        <a class="proj-ext" href="https://github.com/Hloganathan08/repomind" target="_blank">GitHub →</a>
+      </div>
+      <div class="proj-title">RepoMind — AI Codebase Intelligence Platform</div>
+      <div class="proj-sub">Full-stack developer tool that analyzes GitHub repositories using AI — per-file summaries, architecture overviews, and natural language codebase chat.</div>
+      <div class="proj-chips">
+        <span class="proj-chip">FastAPI</span><span class="proj-chip">React + TypeScript</span><span class="proj-chip">Claude API</span><span class="proj-chip">Celery + Redis</span><span class="proj-chip">PostgreSQL</span><span class="proj-chip">GitHub API</span>
+      </div>
+      <div class="proj-metrics">
+        <div class="pm"><div class="pm-n">50</div><div class="pm-l">Files analyzed per repo</div></div>
+        <div class="pm"><div class="pm-n">3 tabs</div><div class="pm-l">Overview · Files · Ask AI</div></div>
+        <div class="pm"><div class="pm-n">Async</div><div class="pm-l">Non-blocking AI pipeline</div></div>
+      </div>
+      <div class="proj-findings">
+        <div class="pf-lbl">What was built</div>
+        <ul class="pf-list">
+          <li>Async AI analysis pipeline using Celery + Redis — fetches up to 50 files per repo from GitHub, summarizes each with Claude Haiku without blocking the HTTP request cycle</li>
+          <li>Architecture overview generation — Claude produces tech stack, entry points, and onboarding guide from aggregated file summaries</li>
+          <li>Context-aware codebase chat — per-file AI summaries assembled as system context so Claude answers questions grounded in the actual repository</li>
+          <li>FastAPI backend with JWT auth, per-user repo isolation at the query level, and background task dispatch via Celery</li>
+          <li>React + TypeScript frontend with React Query polling for real-time status updates as repos move from pending → analyzing → ready</li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="eyebrow" style="margin-bottom:1rem;">More projects</div>
-  <div class="proj-grid">
-    <div class="proj-sm">
-      <div class="proj-sm-n">06 — Analytics Engineering</div>
-      <div class="proj-sm-title">Revenue Forecasting &amp; Financial Modeling Pipeline</div>
-      <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">dbt</span><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">Power BI</span></div>
-      <div class="proj-sm-desc">Structured financial datasets into analytics-ready fact tables with standardized revenue, churn, and burn-rate definitions. Automated reporting — cut manual effort 40%. Reconciliation queries validate forecasts against actuals.</div>
-    </div>
-    <div class="proj-sm">
-      <div class="proj-sm-n">07 — Data Analysis</div>
-      <div class="proj-sm-title">Fraud Detection &amp; Transaction Monitoring</div>
-      <div class="proj-sm-chips"><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">XGBoost</span><span class="proj-sm-chip">Power BI</span></div>
-      <div class="proj-sm-desc">Processed 280K+ transactions with feature engineering. XGBoost model at 96% recall. Power BI dashboard surfaces flagged transactions for live analyst review.</div>
-    </div>
-    <div class="proj-sm">
-      <div class="proj-sm-n">08 — Data Engineering</div>
-      <div class="proj-sm-title">Food Allergy &amp; Ingredient Ingestion Pipeline</div>
-      <div class="proj-sm-chips"><span class="proj-sm-chip">Python</span><span class="proj-sm-chip">PostgreSQL</span><span class="proj-sm-chip">OCR</span><span class="proj-sm-chip">FastAPI</span></div>
-      <div class="proj-sm-desc">OCR pipeline extracting ingredient labels into a normalized PostgreSQL schema. ETL logic, allergen risk scoring, and REST API backend for real-time product queries.</div>
-    </div>
-    <div class="proj-sm">
-      <div class="proj-sm-n">09 — Data Analysis</div>
-      <div class="proj-sm-title">Demand Forecasting &amp; Inventory Analysis</div>
-      <div class="proj-sm-chips"><span class="proj-sm-chip">ARIMA</span><span class="proj-sm-chip">Prophet</span><span class="proj-sm-chip">SQL</span><span class="proj-sm-chip">Tableau</span></div>
-      <div class="proj-sm-desc">Forecasting models across 15+ product categories, 25% accuracy improvement. SQL aggregation layers and Tableau dashboards supporting procurement planning decisions.</div>
-    </div>
   </div>
 </div>
 
@@ -535,6 +494,10 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
     <div class="skill-pills"><span class="sk">Cohort Analysis</span><span class="sk">RFM Segmentation</span><span class="sk">KPI Development</span><span class="sk">Revenue Analysis</span><span class="sk">Forecasting</span><span class="sk">Data Reconciliation</span><span class="sk">ETL / ELT</span></div>
   </div>
   <div class="skill-block">
+    <div class="skill-lbl">Software Engineering</div>
+    <div class="skill-pills"><span class="sk">FastAPI</span><span class="sk">React</span><span class="sk">TypeScript</span><span class="sk">Celery</span><span class="sk">Redis</span><span class="sk">Claude API</span><span class="sk">Stripe API</span><span class="sk">GitHub API</span></div>
+  </div>
+  <div class="skill-block">
     <div class="skill-lbl">Tools</div>
     <div class="skill-pills"><span class="sk">Git</span><span class="sk">GitHub Actions</span><span class="sk">Docker (basic)</span><span class="sk">HubSpot CRM</span><span class="sk">Jira</span></div>
   </div>
@@ -546,8 +509,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
   <h2 class="pg-h">Let's connect<br><em>&amp; build something great.</em></h2>
   <p class="contact-note">Open to full-time roles in data analysis and analytics engineering. Boston-based — open to hybrid or remote. Always happy to chat, no pressure.</p>
   <div class="c-list">
-    <a class="c-card" href="/cdn-cgi/l/email-protection#9ef6f2f1f9fff0ffeaf6fff0deebf3ffededb0fbfaeb">
-      <div class="c-icon">@</div><div><div class="c-lbl">Email</div><div class="c-val"><span class="__cf_email__" data-cfemail="fc9490939b9d929d88949d92bc89919d8f8fd2999889">[email&#160;protected]</span></div></div>
+    <a class="c-card" href="mailto:hloganathan@umass.edu">
+      <div class="c-icon">@</div><div><div class="c-lbl">Email</div><div class="c-val">hloganathan@umass.edu</div></div>
     </a>
     <a class="c-card" href="https://linkedin.com/in/harshitaloganathan" target="_blank">
       <div class="c-icon">in</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/harshitaloganathan</div></div>
@@ -560,6 +523,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--black);fon
     </a>
   </div>
 </div>
+
 </main>
 </div>
 
